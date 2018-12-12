@@ -3,7 +3,7 @@ This is the repository for immersive graphs, built using nodejs, express, mongod
 
 ## Build Setup
 ### Requirements
-Node.js >= v8.10.0 and Yarn >= 1.12.3
+Node.js >= v8.10.0 , Yarn >= 1.12.3, and MongoDB >= 3.6.3
 Please replace PRODUCTION_MONGO_SERVER, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and PRODUCTION_URL with the appropriate information.
 
 ### Commands
