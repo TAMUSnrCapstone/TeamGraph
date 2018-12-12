@@ -11,7 +11,7 @@ Please replace PRODUCTION_MONGO_SERVER, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, 
 # install dependencies
 yarn install
 
-#start backend with hot reload at local (Make sure Mongo server is running locally on port 27017)
+#start backend with hot reload at localhost:5000 (Make sure Mongo server is running locally on port 27017)
 yarn run server
 
 # serve frontend with hot reload at localhost:8080
