@@ -1,0 +1,252 @@
+[{
+        "title": "Depth First Search",
+        "path": "depthfirstsearch",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Depth First Search, or DFS, is an algorithm for traversing the nodes of a graph. The goal of this algorithm is to visit every node which is connected to the root exactly once. This algorithm is typically used to find a “goal” node, such as the exit of a maze or a winning state in a game. By visiting every node in the graph once we guarantee that we will find such a node if one exists."
+                }]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Depth First Search can be written recursively or iteratively, but we will focus on the recursive implementation here. In this implementation, every node is processed in the same way and the code is called recursively for every node in the tree."
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows:"
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Visit the current node</li><li>For all of the adjacent nodes<ol style='list-style-type: lower-alpha'><li>If the adjacent node is unvisited, recursively call DFS on the adjacent node</li></ol></li></ol>"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "One important note: In order to kick off this recursive process it is important to have a wrapper function which calls the recursive function on some starting node."
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement Depth First Search by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+
+        ]
+    },
+    {
+        "title": "Breadth First Search",
+        "path": "breadthfirstsearch",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Breadth First Search is another algorithm for traversing the nodes of a graph. As with DFS, we will ultimately traverse all the nodes in the graph, but we will expand them in a different order. Breadth first search expands the nodes closest to the source node first, only moving to a further node when all closer nodes have been expanded. This is better for some applications such as path finding in a maze, because we are guaranteed not to waste time going “past” the solution."
+                }]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Breadth first search is an iterative algorithm which keeps track of what nodes to visit next with a queue."
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows:"
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty queue and push the source node to it</li><li>While there are nodes in the queue</li><ol style='list-style-type: lower-alpha'><li>Pop the next node from the queue</li><li>Visit that node</li><li>Add all of the node's neighbors to the queue if they are unvisited</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement Breadth First Search by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+
+    },
+    {
+        "title": "Prim's Algorithm",
+        "path": "prims",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "A minimum spanning tree is a subset of edges that reaches every node in a graph while having the shortest possible edge weight. A case where this might be useful is finding the minimum amount of road needed to connect a group of cities. Note that the minimum spanning tree for an algorithm might not necessarily represent the shortest paths between two nodes on a graph. Prim’s algorithm is an algorithm that can be used to find the minimum spanning tree. It is a greedy algorithm that starts at a given node and finds the shortest edge at each step, until the minimum spanning tree is completed."
+                }]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Prim’s algorithm is implemented by starting from one node and adding nodes at each iteration. This algorithm can start at any arbitrary source node, as there are no weights associated with adding a node to the starting empty tree. During the algorithm a set is created to keep track of which nodes have been visited. Then the source node is assigned a value of 0 and every other node is assigned a value of infinity. While the visited set does not contain every node in the graph, the unvisited node with the smallest value is chosen as the current node and added to the visited set. Then for each node adjacent to the current node, if that adjacent node’s value is less than the weight of the edge connecting it to the current node, set its value to the edge weight."
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty set for visited nodes</li><li>Assign a value of infinity to all nodes in the input graph</li><li>Assign a value of zero to the source node.</li><li>While the visited set is smaller than the total number of nodes</li><ol style='list-style-type: lower-alpha'><li>Pick a node, n, from the graph which has the minimum value and has not been visited</li><li>Add it to the visited set</li><li>Update the value of all nodes adjacent to n. To do this, iterate through all neighboring nodes. For each adjacent node, set it’s value to the smaller of: it’s current value OR the weight of the edge connecting it to n</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement Prim's algorithm by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+    },
+    {
+        "title": "Dijkstra’s Shortest Path Algorithm",
+        "path": "dijkstras",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "A common problem in graph theory is finding the shortest path between nodes. For example, the node may have a goal node and we are interested in how far the other nodes are from this node assuming perfect moves are made. Dijkstra's algorithm is an example of an algorithm that solves this shortest path problem. Given a source node, Dijkstra’s finds the shortest distances to that node from any other node in the graph.  It is important to note that with this algorithm, we are not only interested in the path from the source node to another node, but we are are interested in finding ALL shortest paths from the source node to any other node."
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Dijkstra's algorithm is a greedy algorithm which is very similar to Prim’s algorithm for finding minimum spanning trees. Like Prim’s we will be generating a shortest path tree with the given source node as its root. We do this by first creating a set of visited nodes that represents our shortest path tree, assigning each node an infinite distance from the source node, and giving the source . At every step of the algorithm we find a node which has not been visited yet and has the smallest distance value of all nodes in the graph."
+                    }
+                ]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows. spSet and vtxSet are the shortest path set we are building and the set of unvisited vertices respectively."
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty set for visited nodes</li><li>Assign a distance of infinity to all nodes in the input graph.</li><li>Assign a distance of zero to the source node.</li><li>While the visited set is smaller than the total number of nodes</li><ol style='list-style-type: lower-alpha'><li>Pick a node, n, from the graph which has the minimum distance and has not been visited</li><li>Add it to the visited set</li><li>Update the distance of all nodes adjacent to n. To do this, iterate through all neighboring nodes. For each adjacent node, set it’s distance to the smaller of: it’s current distance OR node n’s distance + the weight of the connecting edge</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement Dijkstra's algorithm by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+    },
+	{
+        "title": "In-Order Traversal",
+        "path": "inorder",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Traversal is a process to visit all the nodes of a tree and may print their values too. Because, all nodes are connected via edges (links) we always start from the root (head) node. That is, we cannot randomly access a node in a tree. There are three ways which we use to traverse a tree −"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "In this traversal method, the left subtree is visited first, then the root and later the right sub-tree. We should always remember that every node may represent a subtree itself.If a binary tree is traversed in-order, the output will produce sorted key values in an ascending order."
+                    }
+                ]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows. spSet and vtxSet are the shortest path set we are building and the set of unvisited vertices respectively."
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty set for visited nodes</li><li>Assign a distance of infinity to all nodes in the input graph.</li><li>Assign a distance of zero to the source node.</li><li>While the visited set is smaller than the total number of nodes</li><ol style='list-style-type: lower-alpha'><li>Pick a node, n, from the graph which has the minimum distance and has not been visited</li><li>Add it to the visited set</li><li>Update the distance of all nodes adjacent to n. To do this, iterate through all neighboring nodes. For each adjacent node, set it’s distance to the smaller of: it’s current distance OR node n’s distance + the weight of the connecting edge</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement In-order traversal by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+    },
+	{
+        "title": "Pre-Order Traversal",
+        "path": "preorder",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Traversal is a process to visit all the nodes of a tree and may print their values too. Because, all nodes are connected via edges (links) we always start from the root (head) node. That is, we cannot randomly access a node in a tree. There are three ways which we use to traverse a tree −"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "In this traversal method, the left subtree is visited first, then the root and later the right sub-tree. We should always remember that every node may represent a subtree itself.If a binary tree is traversed in-order, the output will produce sorted key values in an ascending order."
+                    }
+                ]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows. spSet and vtxSet are the shortest path set we are building and the set of unvisited vertices respectively."
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty set for visited nodes</li><li>Assign a distance of infinity to all nodes in the input graph.</li><li>Assign a distance of zero to the source node.</li><li>While the visited set is smaller than the total number of nodes</li><ol style='list-style-type: lower-alpha'><li>Pick a node, n, from the graph which has the minimum distance and has not been visited</li><li>Add it to the visited set</li><li>Update the distance of all nodes adjacent to n. To do this, iterate through all neighboring nodes. For each adjacent node, set it’s distance to the smaller of: it’s current distance OR node n’s distance + the weight of the connecting edge</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement In-order traversal by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+    },
+		{
+        "title": "Post-Order Traversal",
+        "path": "postorder",
+        "sections": [{
+                "header": "Definition",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "Traversal is a process to visit all the nodes of a tree and may print their values too. Because, all nodes are connected via edges (links) we always start from the root (head) node. That is, we cannot randomly access a node in a tree. There are three ways which we use to traverse a tree −"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "In this traversal method, the left subtree is visited first, then the root and later the right sub-tree. We should always remember that every node may represent a subtree itself.If a binary tree is traversed in-order, the output will produce sorted key values in an ascending order."
+                    }
+                ]
+            },
+            {
+                "header": "Implementation",
+                "content": [{
+                        "type": "paragraph",
+                        "text": "The steps of the algorithm are as follows. spSet and vtxSet are the shortest path set we are building and the set of unvisited vertices respectively."
+                    },
+                    {
+                        "type": "list",
+                        "text": "<ol><li>Create empty set for visited nodes</li><li>Assign a distance of infinity to all nodes in the input graph.</li><li>Assign a distance of zero to the source node.</li><li>While the visited set is smaller than the total number of nodes</li><ol style='list-style-type: lower-alpha'><li>Pick a node, n, from the graph which has the minimum distance and has not been visited</li><li>Add it to the visited set</li><li>Update the distance of all nodes adjacent to n. To do this, iterate through all neighboring nodes. For each adjacent node, set it’s distance to the smaller of: it’s current distance OR node n’s distance + the weight of the connecting edge</li></ol></ol>"
+                    }
+                ]
+            },
+            {
+                "header": "Your Turn",
+                "content": [{
+                    "type": "paragraph",
+                    "text": "Attempt to implement In-order traversal by dragging the provided blocks into the correct positions below. You can use the graph to help you visualize how the algorithm works."
+                }]
+            }
+        ]
+    }
+]

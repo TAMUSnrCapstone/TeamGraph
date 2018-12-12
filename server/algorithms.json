@@ -1,0 +1,500 @@
+[{
+        "name": "depthfirstsearch",
+        "blocks": [{
+                "type": "root",
+                "text": "DFS(node)"
+            },
+            {
+                "type": "statement",
+                "text": "visit(node)"
+            },
+            {
+                "type": "for",
+                "text": "for(neighbor in node.neighbors)"
+            },
+            {
+                "type": "conditional",
+                "text": "if(neighbor is not visited)"
+            },
+            {
+                "type": "statement",
+                "text": "DFS(neighbor)"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "DFS(node)",
+            "children": [{
+                    "type": "statement",
+                    "text": "visit(node)",
+                    "children": []
+                },
+                {
+                    "type": "for",
+                    "text": "for(neighbor in node.neighbors)",
+                    "children": [{
+                        "type": "conditional",
+                        "text": "if(neighbor is not visited)",
+                        "children": [{
+                            "type": "statement",
+                            "text": "DFS(neighbor)",
+                            "children": []
+                        }]
+                    }]
+                }
+            ]
+        }
+    },
+    {
+        "name": "breadthfirstsearch",
+        "blocks": [{
+                "type": "root",
+                "text": "BFS(node)"
+            },
+            {
+                "type": "statement",
+                "text": "Create queue"
+            },
+            {
+                "type": "statement",
+                "text": "queue.push(node)"
+            },
+            {
+                "type": "while",
+                "text": "while(queue is not empty)"
+            },
+            {
+                "type": "statement",
+                "text": "currentNode = queue.pop()"
+            },
+            {
+                "type": "statement",
+                "text": "visit(currentNode)"
+            },
+            {
+                "type": "for",
+                "text": "for(neighbor in node.neighbors)"
+            },
+            {
+                "type": "conditional",
+                "text": "if(neighbor is not visited)"
+            },
+            {
+                "type": "statement",
+                "text": "queue.push(neighbor)"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "BFS(node)",
+            "children": [{
+                    "type": "statement",
+                    "text": "Create queue",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "queue.push(node)",
+                    "children": []
+                },
+                {
+                    "type": "while",
+                    "text": "while(queue is not empty)",
+                    "children": [{
+                            "type": "statement",
+                            "text": "currentNode = queue.pop()",
+                            "children": []
+                        },
+                        {
+                            "type": "statement",
+                            "text": "visit(currentNode)",
+                            "children": []
+                        },
+                        {
+                            "type": "for",
+                            "text": "for(neighbor in node.neighbors)",
+                            "children": [{
+                                "type": "conditional",
+                                "text": "if(neighbor is not visited)",
+                                "children": [{
+                                    "type": "statement",
+                                    "text": "queue.push(neighbor)",
+                                    "children": []
+                                }]
+                            }]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "dijkstras",
+        "blocks": [{
+                "type": "root",
+                "text": "Dijkstras(graph, source)"
+            },
+            {
+                "type": "statement",
+                "text": "Create Visited Set"
+            },
+            {
+                "type": "statement",
+                "text": "Set node distances to infinite"
+            },
+            {
+                "type": "statement",
+                "text": "Set source distance to 0"
+            },
+            {
+                "type": "while",
+                "text": "While(visited.size() < graph.size())"
+            },
+            {
+                "type": "statement",
+                "text": "currentNode = graph.smallestDistance()"
+            },
+            {
+                "type": "statement",
+                "text": "visited.add(currentNode)"
+            },
+            {
+                "type": "for",
+                "text": "for(edge in currentNode.adjacentEdges())"
+            },
+            {
+                "type": "conditional",
+                "text": "if(currentNode.distance + edge.weight < edge.target.distance)"
+            },
+            {
+                "type": "statement",
+                "text": "edge.target.distance = currentNode.distance + edge.weight"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "Dijkstras(graph, source)",
+            "children": [
+                {
+                    "type": "statement",
+                    "text": "Create Visited Set",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "Set node distances to infinite",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "Set source distance to 0",
+                    "children": []
+                },
+                {
+                    "type": "while",
+                    "text": "While(visited.size() < graph.size())",
+                    "children": [
+                        {
+                            "type": "statement",
+                            "text": "currentNode = graph.smallestDistance()",
+                            "children": []
+                        },
+                        {
+                            "type": "statement",
+                            "text": "visited.add(currentNode)",
+                            "children": []
+                        },
+                        {
+                            "type": "for",
+                            "text": "for(edge in currentNode.adjacentEdges())",
+                            "children": [
+                                {
+                                    "type": "conditional",
+                                    "text": "if(currentNode.distance + edge.weight < edge.target.distance)",
+                                    "children": [{
+                                        "type": "statement",
+                                        "text": "edge.target.distance = currentNode.distance + edge.weight",
+                                        "children": []
+                                    }]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "prims",
+        "blocks": [{
+                "type": "root",
+                "text": "Prims(graph, source)"
+            },
+            {
+                "type": "statement",
+                "text": "Create Visited Set"
+            },
+            {
+                "type": "statement",
+                "text": "Set node values to infinite"
+            },
+            {
+                "type": "statement",
+                "text": "Set source value to 0"
+            },
+            {
+                "type": "while",
+                "text": "While(visited.size() < graph.size())"
+            },
+            {
+                "type": "statement",
+                "text": "currentNode = graph.smallestValue()"
+            },
+            {
+                "type": "statement",
+                "text": "visited.add(currentNode)"
+            },
+            {
+                "type": "for",
+                "text": "for(edge in currentNode.adjacentEdges())"
+            },
+            {
+                "type": "conditional",
+                "text": "if(edge.target.value < edge.weight)"
+            },
+            {
+                "type": "statement",
+                "text": "edge.target.value = edge.weight"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "Prims(graph, source)",
+            "children": [
+                {
+                    "type": "statement",
+                    "text": "Create Visited Set",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "Set node values to infinite",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "Set source value to 0",
+                    "children": []
+                },
+                {
+                    "type": "while",
+                    "text": "While(visited.size() < graph.size())",
+                    "children": [
+                        {
+                            "type": "statement",
+                            "text": "currentNode = graph.smallestValue()",
+                            "children": []
+                        },
+                        {
+                            "type": "statement",
+                            "text": "visited.add(currentNode)",
+                            "children": []
+                        },
+                        {
+                            "type": "for",
+                            "text": "for(edge in currentNode.adjacentEdges())",
+                            "children": [
+                                {
+                                    "type": "conditional",
+                                    "text": "if(edge.target.value < edge.weight)",
+                                    "children": [{
+                                        "type": "statement",
+                                        "text": "edge.target.value = edge.weight",
+                                        "children": []
+                                    }]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+	{
+        "name": "inorder",
+        "blocks": [{
+                "type": "root",
+                "text": "inOrder(node)"
+            },
+            {
+                "type": "statement",
+                "text": "inOrder(node->left)"
+            },
+            {
+                "type": "statement",
+                "text": "inOrder(node->right)"
+            },
+            {
+                "type": "statement",
+                "text": "printData(node)"
+            },
+            {
+                "type": "conditional",
+                "text": "if(node = NULL)"
+            },
+            {
+                "type": "statement",
+                "text": "return"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "inOrder(node)",
+            "children": [{
+                    "type": "conditional",
+                    "text": "if(node = NULL)",
+                    "children": [
+						{
+							"type": "statement",
+							"text": "return",
+							"children": []
+						}
+					]
+                },
+                {
+                    "type": "statement",
+                    "text": "inOrder(node->left)",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "printData(node)",
+                    "children": []
+                },
+				{
+                    "type": "statement",
+                    "text": "inOrder(node->right)",
+                    "children": []
+                }
+            ]
+        }
+    },
+	{
+        "name": "preorder",
+        "blocks": [{
+                "type": "root",
+                "text": "preOrder(node)"
+            },
+            {
+                "type": "statement",
+                "text": "preOrder(node->left)"
+            },
+            {
+                "type": "statement",
+                "text": "preOrder(node->right)"
+            },
+            {
+                "type": "statement",
+                "text": "printData(node)"
+            },
+            {
+                "type": "conditional",
+                "text": "if(node = NULL)"
+            },
+            {
+                "type": "statement",
+                "text": "return"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "preOrder(node)",
+            "children": [{
+                    "type": "conditional",
+                    "text": "if(node = NULL)",
+                    "children": [
+						{
+							"type": "statement",
+							"text": "return",
+							"children": []
+						}
+					]
+                },
+                {
+                    "type": "statement",
+                    "text": "printData(node)",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "preOrder(node->left)",
+                    "children": []
+                },
+				{
+                    "type": "statement",
+                    "text": "preOrder(node->right)",
+                    "children": []
+                }
+            ]
+        }
+    },
+	{
+        "name": "postorder",
+        "blocks": [{
+                "type": "root",
+                "text": "postOrder(node)"
+            },
+            {
+                "type": "statement",
+                "text": "postOrder(node->left)"
+            },
+            {
+                "type": "statement",
+                "text": "postOrder(node->right)"
+            },
+            {
+                "type": "statement",
+                "text": "printData(node)"
+            },
+            {
+                "type": "conditional",
+                "text": "if(node = NULL)"
+            },
+            {
+                "type": "statement",
+                "text": "return"
+            }
+        ],
+        "answer": {
+            "type": "root",
+            "text": "postOrder(node)",
+            "children": [{
+                    "type": "conditional",
+                    "text": "if(node = NULL)",
+                    "children": [
+						{
+							"type": "statement",
+							"text": "return",
+							"children": []
+						}
+					]
+                },
+                {
+                    "type": "statement",
+                    "text": "postOrder(node->left)",
+                    "children": []
+                },
+                {
+                    "type": "statement",
+                    "text": "postOrder(node->right)",
+                    "children": []
+                },
+				{
+                    "type": "statement",
+                    "text": "printData(node)",
+                    "children": []
+                }
+            ]
+        }
+    }
+]

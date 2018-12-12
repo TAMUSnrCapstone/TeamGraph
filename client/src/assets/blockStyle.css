@@ -1,0 +1,121 @@
+.mydiv{
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    cursor: move;
+    min-width: 175px;
+    font-size: 1.2rem;
+    height: 2.5rem;
+}
+
+.leftBar{
+    position: absolute;
+    width:0.7rem;
+    height: 2.5rem;
+    background-color: gray;
+}
+
+.botBar{
+    position: absolute;
+    min-width: 175px;
+    height: 0.7rem;
+    background-color: black;
+}
+
+.dragToContainer{
+    height: 500px;
+    width: 500px;
+    background-color: lightgrey;
+}
+
+
+.forLoop{
+    color: white;
+    padding: 8px;
+    background-color: red;
+    text-align: center;
+
+}
+
+
+
+.whileLoop{
+    background-color: orange;
+    color: white;
+    padding: 8px;
+    top:100px;
+    text-align: center;
+
+}
+
+
+
+.ifElse{
+    background-color: #08D043;
+    color: white;
+    padding: 8px;
+    text-align: center;
+
+}
+
+.middleBar{
+    background-color: #08D043;
+}
+
+
+
+.elseStatement{
+    background-color: blue;
+}
+
+.elseStatement > div{
+    padding: 0
+}
+
+
+.functions{
+    background-color: #3000EB;
+    color: white;
+    padding: 8px;
+    text-align: center;
+
+}
+
+
+.functions > div{
+    padding: 0
+}
+
+.restrictedContainer{
+    background-color: lightgrey;
+    width: 400px;
+    min-height: 400px;
+    max-height: 1200px;
+    position: relative;
+}
+
+.blockBank{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.button{
+    padding: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+
+}
+
+.button:hover{
+    opacity: 0.9;
+}
+
+.clear{
+    background-color: red;
+    color: white;
+}
